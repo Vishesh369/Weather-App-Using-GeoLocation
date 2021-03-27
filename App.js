@@ -4,7 +4,7 @@ const button = document.getElementById("button");
 const displayTemp = document.getElementById("Temperature");
 const displayLoc = document.getElementById("coordinates");
 const googleAPI = "AIzaSyAOMi8iUGXW3wEonKUyn5pfo02bv6V6FV0";
-
+const pin = document.getElementById("pin");
 button.addEventListener('click',getLocation)
 function getLocation() {
   if (navigator.geolocation) {
@@ -28,7 +28,7 @@ let map;
 function initMap(Latitude,Longitude) {
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: Latitude, lng: Longitude },
-    zoom: 8,
+    zoom: 16,
   });
 }
 async function fetchWeatherInfo(Latitude,Longitude){
@@ -44,7 +44,8 @@ async function fetchWeatherInfo(Latitude,Longitude){
     console.log("City Name",city);
     displayLoc.innerHTML = city;
     displayTemp.innerHTML = "Current Temperature is approx. " + currentTemp+"C";
-}
+    pin.innerHTML = "You are Here!!";
+  }
 
 
 
