@@ -28,12 +28,11 @@ let map;
 function initMap(Latitude,Longitude) {
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: Latitude, lng: Longitude },
-    zoom: 16,
+    zoom: 18,
   });
 }
 async function fetchWeatherInfo(Latitude,Longitude){
     
-   
      console.log("check");
      const apiCall = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${Latitude},${Longitude}&aqi=yes`)
      //const apiCall = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${Latitude}&lon=${Longitude}&units=Metric&appid=${apiKey}`)
